@@ -11,27 +11,31 @@ L.Icon.Default.mergeOptions({
 
 window.addEventListener("DOMContentLoaded", () => {
   const map = L.map("map").setView([44.3, 23.8], 13);
-
   L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     attribution: "© OpenStreetMap contributors © CARTO",
   }).addTo(map);
 
   let userLocation = null;
-
-  // 📍 1. GET USER LOCATION + CENTER MAP
+  let zoneLocation = null;
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
 
         userLocation = { lat: latitude, lng: longitude };
-
+        zoneLocation = userLocation;
         map.setView([latitude, longitude], 16);
 
         L.marker([latitude, longitude])
           .addTo(map)
           .bindPopup("📍 Ești aici")
           .openPopup();
+        L.circleMarker([lat, lng], {
+          radius: 10,
+          color: "red",
+          fillColor: "red",
+          fillOpacity: 0.6,
+        })
       },
       () => {
         alert("Trebuie să permiți locația pentru a folosi aplicația.");
@@ -41,8 +45,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     );
   }
-
-  // 📏 funcție distanță (Haversine simplu)
   function getDistanceMeters(lat1, lon1, lat2, lon2) {
     const R = 6371e3;
     const φ1 = (lat1 * Math.PI) / 180;
@@ -59,21 +61,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
     return R * c;
   }
-navigator.geolocation.getCurrentPosition(
-  (pos) => {
-    console.log("OK:", pos.coords);
-    alert("Locație funcționează");
-  },
-  (err) => {
-    console.log("ERROR:", err);
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      console.log("OK:", pos.coords);
+      alert("Locație funcționează");
+    },
+    (err) => {
+      console.log("ERROR:", err);
 
-    alert(
-      "Eroare geolocation: " + err.code +
-      "\nProbabil Safari blochează permisiunea."
-    );
-  }
-);
-  // 🔴 2. RAPORTARE DOAR APROAPE DE TINE
+      alert(
+        "Eroare geolocation: " + err.code +
+        "\nProbabil Safari blochează permisiunea."
+      );
+    }
+  );
   map.on("click", (e) => {
     if (!userLocation) {
       alert("Nu avem locația ta încă.");
