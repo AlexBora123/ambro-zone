@@ -10,6 +10,7 @@ L.Icon.Default.mergeOptions({
 });
 
 window.addEventListener("DOMContentLoaded", () => {
+
   const map = L.map("map").setView([44.3, 23.8], 13);
   L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     attribution: "© OpenStreetMap contributors © CARTO",
@@ -27,10 +28,26 @@ window.addEventListener("DOMContentLoaded", () => {
         zoneLocation = userLocation;
         map.setView([latitude, longitude], 16);
 
-        L.marker([latitude, longitude])
+        var marker = L.marker([latitude, longitude])
           .addTo(map)
           .bindPopup("📍 Ești aici")
           .openPopup();
+        marker.addEventListener("click", function func(e) {
+          const { lat, lang } = e.latlng;
+          userCircleserCircle
+            .setLatLng([lat, lng])
+            .bindPopup("⚠️ Raporteazǎ ambrozie aici!")
+            .openPopup();
+        });
+
+        delete L.Icon.Default.prototype._getIconUrl;
+
+        L.Icon.Default.mergeOptions({
+          iconRetinaUrl: markerIcon,
+          iconUrl: markerIcon,
+          shadowUrl: markerShadow,
+        });
+
         userCircle = L.circleMarker([userLocation.lat, userLocation.lng], {
           radius: 10,
           color: "red",
@@ -98,11 +115,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     if (userCircle) {
-  userCircle
-    .setLatLng([lat, lng])
-    .bindPopup("⚠️ Ambrozie raportată aici")
-    .openPopup();
-}
+      userCircle
+        .setLatLng([lat, lng])
+        .bindPopup("⚠️ Raporteazǎ ambrozie aici!")
+        .openPopup();
+    }
   });
 
   setTimeout(() => {
