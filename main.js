@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", () => {
           color: "red",
           fillColor: "red",
           fillOpacity: 0.6,
-        })
+        }).addTo(map);
       },
       () => {
         alert("Trebuie să permiți locația pentru a folosi aplicația.");
