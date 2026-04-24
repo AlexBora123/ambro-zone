@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
           .addTo(map)
           .bindPopup("📍 Ești aici")
           .openPopup();
-        L.circleMarker([lat, lng], {
+        L.circleMarker([userLocation.lat, userLocation.lng], {
           radius: 10,
           color: "red",
           fillColor: "red",
