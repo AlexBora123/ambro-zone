@@ -17,6 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let userLocation = null;
   let zoneLocation = null;
+  let userCircle = null;
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -30,12 +31,13 @@ window.addEventListener("DOMContentLoaded", () => {
           .addTo(map)
           .bindPopup("📍 Ești aici")
           .openPopup();
-        L.circleMarker([userLocation.lat, userLocation.lng], {
+        userCircle = L.circleMarker([userLocation.lat, userLocation.lng], {
           radius: 10,
           color: "red",
           fillColor: "red",
           fillOpacity: 0.6,
-        }).addTo(map);
+        });
+        userCircle.addTo(map);
       },
       () => {
         alert("Trebuie să permiți locația pentru a folosi aplicația.");
@@ -95,15 +97,12 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    L.circleMarker([lat, lng], {
-      radius: 10,
-      color: "red",
-      fillColor: "red",
-      fillOpacity: 0.6,
-    })
-      .addTo(map)
-      .bindPopup("⚠️ Ambrozie raportată aici")
-      .openPopup();
+    if (userCircle) {
+  userCircle
+    .setLatLng([lat, lng])
+    .bindPopup("⚠️ Ambrozie raportată aici")
+    .openPopup();
+}
   });
 
   setTimeout(() => {
