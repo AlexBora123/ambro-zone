@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
           .bindPopup("📍 Ești aici")
           .openPopup();
         marker.addEventListener("click", function func(e) {
-          const { lat, lang } = e.latlng;
+          const { lat, lng } = e.latlng;
           userCircleserCircle
             .setLatLng([lat, lng])
             .bindPopup("⚠️ Raporteazǎ ambrozie aici!")
