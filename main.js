@@ -32,13 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
           .addTo(map)
           .bindPopup("📍 Ești aici")
           .openPopup();
-        marker.addEventListener("click", function func(e) {
-          const { lat, lng } = e.latlng;
-          userCircleserCircle
-            .setLatLng([lat, lng])
-            .bindPopup("⚠️ Raporteazǎ ambrozie aici!")
-            .openPopup();
-        });
+        
 
         delete L.Icon.Default.prototype._getIconUrl;
 
@@ -46,6 +40,14 @@ window.addEventListener("DOMContentLoaded", () => {
           iconRetinaUrl: markerIcon,
           iconUrl: markerIcon,
           shadowUrl: markerShadow,
+        });
+
+        marker.addEventListener("click", function func(e) {
+          const { lat, lng } = e.latlng;
+          userCircle
+            .setLatLng([lat, lng])
+            .bindPopup("⚠️ Raporteazǎ ambrozie aici!")
+            .openPopup();
         });
 
         userCircle = L.circleMarker([userLocation.lat, userLocation.lng], {
