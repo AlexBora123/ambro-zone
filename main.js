@@ -4,6 +4,14 @@ import "leaflet/dist/leaflet.css";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
+
 L.Icon.Default.mergeOptions({
   iconUrl: markerIcon,
   shadowUrl: markerShadow,
@@ -33,14 +41,6 @@ window.addEventListener("DOMContentLoaded", () => {
           .bindPopup("📍 Ești aici")
           .openPopup();
         
-
-        delete L.Icon.Default.prototype._getIconUrl;
-
-        L.Icon.Default.mergeOptions({
-          iconRetinaUrl: markerIcon,
-          iconUrl: markerIcon,
-          shadowUrl: markerShadow,
-        });
 
         marker.addEventListener("click", function func(e) {
           const { lat, lng } = e.latlng;
