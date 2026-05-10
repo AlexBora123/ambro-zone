@@ -12,7 +12,9 @@
   <div id="display-container"></div>
   <button id="report-btn">Raportează ambrozie</button>
   <div class="menu-wrap">
-    <button id="showMenu"><p>➤</p></button>
+    <button id="showMenu">
+      <p>➤</p>
+    </button>
     <div id="menu" class="menu">
       <div id="despre">Despre ambrozie</div>
       <div id="calendar">Calendar</div>
@@ -21,15 +23,110 @@
   </div>
 
   <template id="t-despre">
-    <div class="view">  
-      <div class="sheet-handle"></div>
-      <p>Despre ambrozie</p>
-    </div>
-  </template>
+  <div class="view">
+    <div class="view-inner">
 
-  <template id="t-calendar"> 
+      <div class="hero">
+        <div class="hero-label">Craiova · Dolj · Oltenia</div>
+        <h1>Ambrozia<br>în Craiova</h1>
+        <p class="hero-sub">Tot ce trebuie să știi despre această plantă invazivă și cum te protejezi în sezon.</p>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">49%</div>
+          <div class="stat-label">alergici conform Filantropia</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">iul–oct</div>
+          <div class="stat-label">sezon polen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">30k</div>
+          <div class="stat-label">semințe / plantă</div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Ce este ambrozia?</h2>
+        <img src="ambrozia.jpg" alt="Planta ambrozie" />
+        <p><em><a href="https://en.wikipedia.org/wiki/Ambrosia_artemisiifolia" target="_blank">Ambrosia artemisiifolia</a></em> — „iarba pârloagelor" sau „floarea pustei". Buruiană invazivă din America de Nord, rezistentă la secetă, cu până la <strong>30.000 de semințe</strong> per plantă, viabile în sol până la 40 de ani.</p>
+      </div>
+
+      <div class="info-section">
+        <h2>Situația în Craiova</h2>
+        <img src="craiova.png" alt="Ambrozie Craiova" />
+        <p>Un <a href="https://www.chsjournal.org/CHSJ/papers/CHSJ.45.01.09.pdf" target="_blank">studiu realizat la Spitalul Filantropia Craiova</a> arată că <strong>49%</strong> din pacienții cu rinită alergică sunt sensibili la ambrozie — cel mai ridicat procent față de orice alt alergen testat.</p>
+        <div class="warning-box">
+          <p>⚠ <a href="https://www.raadpfl.ro" target="_blank">RAADPFL Craiova</a> are obligația să cosească terenurile până pe 30 iunie. Presa locală semnalează că operațiunea se efectuează parțial — ambrozia apare și în zone centrale.</p>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Unde crește în oraș</h2>
+        <ul class="info-list">
+          <li>Terenuri virane și loturi neîngrijite</li>
+          <li>Marginile drumurilor și bulevardelor</li>
+          <li>Parcuri și grădini neîntreținute</li>
+          <li>Șantiere și zone în construcție</li>
+          <li>Malurile râului Jiu și zonele adiacente</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h2>Perioada de polenizare</h2>
+        <p>Polenizarea începe la mijlocul lunii iulie și durează până în octombrie, cu vârf în august–septembrie. Aerul este cel mai încărcat între <strong>9:00–11:00</strong>. Monitorizează nivelul pe <a href="https://www.copernicus.eu/en" target="_blank">Copernicus</a> sau <a href="https://www.airmatters.com" target="_blank">AirMatters</a>.</p>
+      </div>
+
+      <div class="info-section">
+        <h2>Cum te afectează</h2>
+        <ul class="info-list">
+          <li>Strănut repetat, nas înfundat, secreții abundente</li>
+          <li>Ochi roșii, lăcrimați și iritați</li>
+          <li>Tuse persistentă și respirație dificilă</li>
+          <li>Oboseală și somnolență cronică</li>
+          <li>Agravarea <a href="https://www.reginamaria.ro/articole-medicale/alergia-la-ambrozie-simptome-si-tratament" target="_blank">astmului bronșic</a></li>
+          <li>Reacții cutanate — urticarie și erupții</li>
+        </ul>
+        <div class="warning-box">
+          <p>⚠ Reacții încrucișate posibile după consumul de <strong>banane, castraveți, pepene sau zucchini</strong>. Detalii la <a href="https://medic-line.ro/articol/alergia-la-polenul-de-ambrozie" target="_blank">Medic Line</a>.</p>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Ce poți face</h2>
+        <ul class="info-list">
+          <li>Antihistaminice — reduc simptomele alergice</li>
+          <li>Spray-uri nazale corticosteroide — combat inflamația</li>
+          <li>Picături oftalmice — pentru iritația ochilor</li>
+          <li><a href="https://www.reginamaria.ro/articole-medicale/alergia-la-ambrozie-simptome-si-tratament" target="_blank">Imunoterapie (AIT)</a> — singura metodă care modifică cursul bolii</li>
+        </ul>
+        <p>Consultă un alergolog la <a href="https://www.spitalulfilantropia.ro" target="_blank">Spitalul Filantropia</a>, <a href="https://www.reginamaria.ro" target="_blank">Regina Maria</a> sau <a href="https://www.medlife.ro" target="_blank">MedLife</a>.</p>
+      </div>
+
+      <div class="info-section">
+        <h2>Cum te protejezi</h2>
+        <ul class="info-list">
+          <li>Evită ieșirile între 9:00–11:00 în zilele cu vânt</li>
+          <li>Poartă ochelari de soare și mască în sezon</li>
+          <li>Ține ferestrele închise dimineața</li>
+          <li>Duș și schimb de haine după fiecare ieșire</li>
+          <li>Filtre HEPA acasă, plase antipolen la ferestre</li>
+          <li>Evită alimentele cu reacții încrucișate în sezon</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h2>Obligații legale</h2>
+        <p>Conform <a href="https://legislatie.just.ro/Public/DetaliiDocument/199917" target="_blank">Legii nr. 62/2018</a>, proprietarii sunt obligați să cosească ambrozia înainte de <strong>30 iunie</strong>. Amenzi aplicate de <a href="https://www.politialocalacv.ro" target="_blank">Poliția Locală Craiova</a>. Raportează la <a href="https://www.primariacova.ro" target="_blank">Primăria Craiova</a> sau prin această aplicație.</p>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+  <template id="t-calendar">
     <div class="view">
-      <div class="sheet-handle"></div>
       <p>Calendar</p>
     </div>
   </template>

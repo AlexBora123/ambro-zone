@@ -105,18 +105,18 @@ btn.addEventListener("click", () => {
     btn.style.color = "#1a1a1a";
   } else {
     menu.classList.remove("open");
-    btn.style.backgroundColor = "#1a1a1a";
-    btn.style.color = "#f5f5f5";
     menu.addEventListener("transitionend", () => {
       if (!menu.classList.contains("open")) menu.style.display = "none";}, { once: true });
+    btn.style.backgroundColor = "#1a1a1a";
+    btn.style.color = "#f5f5f5";
   }
 });
 
 function closeMenu(){
   menu.classList.remove("open");
+  menu.addEventListener("transitionend", () => {if (!menu.classList.contains("open")) menu.style.display = "none"}, { once: true });
   btn.style.backgroundColor = "#1a1a1a";
   btn.style.color = "#f5f5f5";
-  menu.addEventListener("transitionend", () => {if (!menu.classList.contains("open")) menu.style.display = "none"}, { once: true });
 }
 
 function loadContent(id){
