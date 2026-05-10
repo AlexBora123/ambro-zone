@@ -1,0 +1,29 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+#report-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: clamp(8px, 1.5vw, 12px) clamp(14px, 2vw, 20px);
+  font-size: clamp(13px, 1.2vw, 16px);
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#report-btn:hover { background: #333; }
+#report-btn:focus-visible { outline: 2px solid white; outline-offset: 2px; }
