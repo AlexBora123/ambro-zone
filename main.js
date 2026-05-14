@@ -292,6 +292,20 @@ document.querySelectorAll("#menu div").forEach((item) => {
   });
 });
 
+const CRAIOVA_BOUNDS = {
+  latMin: 44.2700, 
+  latMax: 44.3700, 
+  lngMin: 23.7300, 
+  lngMax: 23.8800  
+};
+
+function isInsideCraiova(lat, lng) {
+  return lat >= CRAIOVA_BOUNDS.latMin && 
+         lat <= CRAIOVA_BOUNDS.latMax && 
+         lng >= CRAIOVA_BOUNDS.lngMin && 
+         lng <= CRAIOVA_BOUNDS.lngMax;
+}
+
 
 
 async function loadReportsOnMap() {
@@ -337,6 +351,12 @@ confirmBtn.addEventListener("click", async () => {
   if (!captchaToken) return alert("Bifează căsuța CAPTCHA!");
 
   const { lat, lng } = userCircle.getLatLng();
+
+  if (!isInsideCraiova(lat, lng)) {
+    alert("Ne pare rău! Momentan acceptăm raportări doar pentru municipiul Craiova.");
+    modal.style.display = "none";
+    return;
+  }
 
   try {
     const checkRes = await fetch("/api/reports");
