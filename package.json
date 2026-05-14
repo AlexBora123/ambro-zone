@@ -5,14 +5,23 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "nodemon server/server.js",
+    "dev:full": "concurrently \"vite\" \"nodemon server/server.js\"",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.14",
     "vite": "^8.0.10"
   },
   "dependencies": {
-    "firebase": "^12.12.1",
-    "leaflet": "^1.9.4"
+    "catboost": "^1.27.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "firebase": "^12.13.0",
+    "leaflet": "^1.9.4",
+    "node-fetch": "^3.3.2"
   }
 }
